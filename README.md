@@ -1,5 +1,9 @@
 # AngularPomodoroClock
 
+Pomodoro Clock app with Angular CLI
+
+Demo: https://Cl3r1k.github.io/angular-pomodoro-clock/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
 ## Development server
