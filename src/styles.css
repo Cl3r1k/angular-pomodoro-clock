@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+body {
+    /* background-image: linear-gradient(40deg, rgba(56, 180, 15, 0.77), rgba(248, 134, 134, 0.57)); */
+    background-color: #797570;
+    color: #333;
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+footer {
+    padding: 20px 0 0 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a,
+a:focus,
+a:hover {
+    text-decoration: none;
+}

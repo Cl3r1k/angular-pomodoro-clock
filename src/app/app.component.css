@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Grand+Hotel');
+h4 {
+    font-family: 'Grand Hotel', cursive, sans-serif;
+    font-size: 62px;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    /* border: 0; */
+    font-size: 24px;
+    height: 30px;
+    width: 30px;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.wrapper {
+    padding-top: 30px;
+    text-align: center;
+    color: white;
+}
+
+.pomodoro-box {
+    /* background: #E8E9EB; */
+    /* border: 2px solid #908b85; */
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 328px;
+    height: 300px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.breaklength-block {
+    /*  */
+}
+
+.sessionlength-block {
+    /*  */
+}
+
+.session-block {
+    border: 2px solid #33B433;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 15px auto;
+    padding: 15px;
+}
+
+.session-block p {
+    font-size: 30px;
+    padding: 40px 0 10px 0;
+}
+
+.session-block p.timer {
+    font-size: 40px;
+}
+
+.session-block:hover {
+    cursor: pointer;
+}
+
+.prefs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prefs p {
+    text-transform: uppercase;
+    font-family: Open Sans, arial;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.prefs span {
+    font-size: 30px;
+}
+
+.prefs button {
+    margin: 5px;
+    color: white;
+    border: 0;
+    font-size: 30px;
+    font-weight: 500;
+}

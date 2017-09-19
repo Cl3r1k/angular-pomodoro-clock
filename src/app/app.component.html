@@ -8,20 +8,20 @@
             <div class="breaklength-block">
                 <p>Break length</p>
                 <button (click)='decreaseBreakLength()'>-</button>
-                <p>{{breakLength}}</p>
+                <span>{{breakLength}}</span>
                 <button (click)='increaseBreakLength()'>+</button>
             </div>
             <div class="sessionlength-block">
                 <p>Session length</p>
                 <button (click)='decreaseSessionLength()'>-</button>
-                <p>{{sessionLength}}</p>
+                <span>{{sessionLength}}</span>
                 <button (click)='increaseSessionLength()'>+</button>
             </div>
         </div>
 
         <div class="session-block" (click)='sessionChangeState()'>
-            <h5>{{currentState}}</h5>
-            <p>{{currentTimer}}</p>
+            <p>{{currentState}}</p>
+            <p class="timer">{{currentTimer}}</p>
         </div>
     </div>
 </div>
