@@ -21,14 +21,14 @@
  * - и по возможности прикрутить спинер на загрузке компонента
 */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     breakLength = 5;
     sessionLength = 25;
     currentTimer = this.sessionLength.toString();    // Variable to view current time in component
@@ -38,9 +38,17 @@ export class AppComponent {
     isBreak = false;
     isSessionPaused = false;
     isBreakPaused = false;
+    bgFillingColor = 'transparent';
+    bgFillingHeight = '0%';
+
+    visibility = false;
 
     // Define timer variable
     timeInterval;
+
+    ngOnInit() {
+        this.setFilling('red', '0%');
+    }
 
     sessionChangeState() {
         this.timerInit();
@@ -98,8 +106,11 @@ export class AppComponent {
             return;
         }
 
-        if (!this.isSession && !this.isBreak) {
+        if (this.timeInterval === undefined && this.isBreak === false) {
             this.isSession = true;
+            this.setFilling('red', '0%');
+        } else {
+            this.setFilling('green', '0%');
         }
 
         this.updateClock();
@@ -115,6 +126,16 @@ export class AppComponent {
         this.currentTimer = this.currentTimerInSeconds.toString();
         this.currentTimer = ('0' + t.minutes).slice(-2) + ':' + ('0' + t.seconds).slice(-2);
 
+        let totalLength: number;
+
+        if (this.isSession) {
+            totalLength = this.sessionLength * 60;
+        } else {
+            totalLength = this.breakLength * 60;
+        }
+
+        this.bgFillingHeight = (Math.round(100 - this.currentTimerInSeconds / totalLength * 100)).toString() + '%';
+
         if (this.currentTimerInSeconds <= 0) {
 
             if (this.isSession) {
@@ -122,11 +143,13 @@ export class AppComponent {
                 this.isBreak = true;
                 this.currentState = 'Break!';
                 this.currentTimerInSeconds = this.breakLength * 60;
+                this.setFilling('green', '0%');
             } else {
                 this.isSession = true;
                 this.isBreak = false;
                 this.currentState = 'Session';
                 this.currentTimerInSeconds = this.sessionLength * 60;
+                this.setFilling('red', '0%');
             }
         }
     }
@@ -151,6 +174,13 @@ export class AppComponent {
             this.currentTimer = this.breakLength.toString();
             this.currentTimerInSeconds = this.breakLength * 60;    // Current value of break in seconds
         }
+
+        this.setFilling('transparent', '0%');
+    }
+
+    setFilling(bgColor: string, bgWidth: string) {
+        this.bgFillingColor = bgColor;
+        this.bgFillingHeight = bgWidth;
     }
 
 }

@@ -6,13 +6,13 @@
 
         <div class='prefs'>
             <div class="breaklength-block">
-                <p>Break length</p>
+                <p>break length</p>
                 <button (click)='decreaseBreakLength()'>-</button>
                 <span>{{breakLength}}</span>
                 <button (click)='increaseBreakLength()'>+</button>
             </div>
             <div class="sessionlength-block">
-                <p>Session length</p>
+                <p>session length</p>
                 <button (click)='decreaseSessionLength()'>-</button>
                 <span>{{sessionLength}}</span>
                 <button (click)='increaseSessionLength()'>+</button>
@@ -20,8 +20,11 @@
         </div>
 
         <div class="session-block" (click)='sessionChangeState()'>
-            <p>{{currentState}}</p>
-            <p class="timer">{{currentTimer}}</p>
+            <div class="innerCircle">
+                <p>{{currentState}}</p>
+                <p class="timer">{{currentTimer}}</p>
+                <div class="bgfill" [style.height]='bgFillingHeight' [style.background-color]='bgFillingColor'></div>
+            </div>
         </div>
     </div>
 </div>

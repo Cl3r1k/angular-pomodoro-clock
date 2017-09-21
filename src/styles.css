@@ -14,7 +14,8 @@ html {
 
 body {
     /* background-image: linear-gradient(40deg, rgba(56, 180, 15, 0.77), rgba(248, 134, 134, 0.57)); */
-    background-color: #797570;
+    /* background-color: #797570; */
+    background: linear-gradient(60deg, #135058, #F1F2B5);
     color: #333;
     width: 100%;
 }
@@ -31,8 +32,14 @@ img {
     vertical-align: middle;
 }
 
+footer p {
+    font-weight: 600;
+}
+
 a,
 a:focus,
 a:hover {
+    color: #2ecc71;
     text-decoration: none;
+    font-weight: 600;
 }

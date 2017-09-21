@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Grand+Hotel');
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
 h4 {
     font-family: 'Grand Hotel', cursive, sans-serif;
     font-size: 62px;
@@ -23,7 +24,7 @@ button:hover {
 }
 
 .wrapper {
-    padding-top: 30px;
+    padding-top: 50px;
     text-align: center;
     color: white;
 }
@@ -31,35 +32,48 @@ button:hover {
 .pomodoro-box {
     /* background: #E8E9EB; */
     /* border: 2px solid #908b85; */
-    border-radius: 20px;
-    margin: 0 auto;
+    background-color: rgba(34, 33, 32, 0.8);
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, .8), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+    font-family: 'Lato', Tahoma, Geneva, sans-serif;
+    border-radius: 4px;
+    margin: 20px auto;
     width: 328px;
     height: 300px;
     font-size: 14px;
     font-weight: 500;
-    padding: 20px;
+    padding: 40px;
 }
 
 .breaklength-block {
-    /*  */
+    color: #2ecc71;
+    width: 130px;
 }
 
 .sessionlength-block {
-    /*  */
+    color: #e74c3c;
+    width: 130px;
 }
 
 .session-block {
-    border: 2px solid #33B433;
+    border: 3px solid #33B433;
+    border-radius: 50%;
+    width: 206px;
+    height: 206px;
+    margin: 15px auto;
+}
+
+.innerCircle {
+    border: 3px solid rgba(34, 33, 32, 0);
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    margin: 15px auto;
-    padding: 15px;
+    overflow: hidden;
+    position: relative;
 }
 
 .session-block p {
     font-size: 30px;
-    padding: 40px 0 10px 0;
+    padding: 40px 0 0 0;
 }
 
 .session-block p.timer {
@@ -76,8 +90,6 @@ button:hover {
 }
 
 .prefs p {
-    text-transform: uppercase;
-    font-family: Open Sans, arial;
     font-size: 12px;
     font-weight: 700;
 }
@@ -92,4 +104,14 @@ button:hover {
     border: 0;
     font-size: 30px;
     font-weight: 500;
+}
+
+.bgfill {
+    margin: auto;
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -2;
 }
