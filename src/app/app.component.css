@@ -78,6 +78,7 @@ button:hover {
 
 .session-block p.timer {
     font-size: 40px;
+    padding-top: 25px;
 }
 
 .session-block:hover {

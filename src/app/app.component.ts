@@ -1,26 +1,3 @@
-// C:\Windows\System32\cmd.exe /k "C:\Program Files\nodejs\nodevars.bat" // To start from VSC terminal node env
-
-/**
- * TODO:
- * - написать бизнес логику
- * -- I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
- * -- I can reset the clock for my next pomodoro.
- * -- I can customize the length of each pomodoro.
- * -- По завершении помдорки автоматически начать отдых (причем цвет заполнения должен быть другой) и написать писаться Break!
- * -- также и при завершении перерыва должен запускаться помидор
- * -- Добавить доп поле под Текущим статусом (при работу - focus on work, а при отдыхе - relax или что-нибудь в этом роде)
- * -- При сессии работы на паузе и изменении времени работы таймер сбрасывается (можно только его изменять)
- * -- При сессии отдыха на паузе и изменен времени отдыха таймер сбрасывается, и стартует уже с новым значением (можно только его изменять)
- * -- При запущенных сессиях нет возможности менять значения времени отдыха и работы
- * -- Добавить отдельную кнопку сброса помидорки/отдыха
- * - стилизовать приложение
- * - написать юинт тесты
- * - correct e2e test
- * - при завершении помидорки выдавать звуковой сигнал и алерт
- * - при нажатии на запущенном помидоре, выдавать запрос на прерывание
- * - и по возможности прикрутить спинер на загрузке компонента
-*/
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -40,6 +17,7 @@ export class AppComponent implements OnInit {
     isBreakPaused = false;
     bgFillingColor = 'transparent';
     bgFillingHeight = '0%';
+    currentStateMessage = 'Tap to start';
 
     visibility = false;
 
@@ -101,7 +79,7 @@ export class AppComponent implements OnInit {
     timerInit() {
 
         if (this.timeInterval !== undefined) {
-            clearInterval(this.timeInterval);    // Типа пауза
+            clearInterval(this.timeInterval);    // Some king of pause
             this.timeInterval = undefined;
             return;
         }
@@ -109,8 +87,10 @@ export class AppComponent implements OnInit {
         if (this.timeInterval === undefined && this.isBreak === false) {
             this.isSession = true;
             this.setFilling('red', '0%');
+            this.currentStateMessage = 'Stay Focused at Work';
         } else {
             this.setFilling('green', '0%');
+            this.currentStateMessage = 'Time to Relax';
         }
 
         this.updateClock();
@@ -144,12 +124,14 @@ export class AppComponent implements OnInit {
                 this.currentState = 'Break!';
                 this.currentTimerInSeconds = this.breakLength * 60;
                 this.setFilling('green', '0%');
+                this.currentStateMessage = 'Time to Relax';
             } else {
                 this.isSession = true;
                 this.isBreak = false;
                 this.currentState = 'Session';
                 this.currentTimerInSeconds = this.sessionLength * 60;
                 this.setFilling('red', '0%');
+                this.currentStateMessage = 'Stay Focused at Work';
             }
         }
     }
@@ -176,6 +158,7 @@ export class AppComponent implements OnInit {
         }
 
         this.setFilling('transparent', '0%');
+        this.currentStateMessage = 'Tap to start';
     }
 
     setFilling(bgColor: string, bgWidth: string) {

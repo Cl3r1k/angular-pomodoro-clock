@@ -22,6 +22,7 @@
         <div class="session-block" (click)='sessionChangeState()'>
             <div class="innerCircle">
                 <p>{{currentState}}</p>
+                <span><small>{{currentStateMessage}}</small></span>
                 <p class="timer">{{currentTimer}}</p>
                 <div class="bgfill" [style.height]='bgFillingHeight' [style.background-color]='bgFillingColor'></div>
             </div>

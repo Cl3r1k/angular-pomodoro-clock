@@ -1,0 +1,23 @@
+// C:\Windows\System32\cmd.exe /k "C:\Program Files\nodejs\nodevars.bat" // To start from VSC terminal node env
+
+Todos:
+  New:
+    ☐ Write Unit tests
+    ☐ Correct e2e test
+    ☐ And if it possible by time - add spinner when Angular component loading
+  Done:
+    ✔ White business logic
+      ✔ I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
+      ✔ I can reset the clock for my next pomodoro.
+      ✔ I can customize the length of each pomodoro.
+      ✔ When the session is finished start automatically break (color Header title and action text should be changed)
+      ✔ When the break is finished start automatically session (color Header title and action text should be changed)
+      ✔ Add additional action text under current state field (while session - focus on work, while break - relax or something like this)
+      ✔ While session is started and paused and session time changed timer should be updated (only session time could be changed)
+      ✔ While break is started and paused and break time changed timer should be updated (only break time could be changed)
+      ✔ While session or break is running the time frames could not be changed
+    ✔ Build UI
+
+  Canceled:
+    ✘ Add additional button for timer reset -> Not necessarily anymore
+    ✘ While session or break is if reset button pressed show dialog window with request to interrupt pomodoro -> Not necessarily anymore
