@@ -1,8 +1,11 @@
 // C:\Windows\System32\cmd.exe /k "C:\Program Files\nodejs\nodevars.bat" // To start from VSC terminal node env
 
+// To push changes on githubpages
+// ng build --prod --base-href "https://Cl3r1k.github.io/angular-pomodoro-clock/"
+// angular-cli-ghpages --repo=https://github.com/Cl3r1k/angular-pomodoro-clock.git --name=Cl3r1k --email=cl3r1k2@gmail.com --no-silent
+
 Todos:
     New:
-        ☐ Deploy on github and gh-pages
         ☐ Deploy on codepen
         
     Done:
@@ -19,6 +22,7 @@ Todos:
         ✔ Build UI
         ✔ Correct e2e test
         ✔ Write Unit tests
+        ✔ Deploy on gh-pages
         
     Canceled:
         ✘ Add additional button for timer reset -> Not necessarily anymore
