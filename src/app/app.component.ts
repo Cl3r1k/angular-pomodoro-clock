@@ -13,13 +13,9 @@ export class AppComponent implements OnInit {
     currentState = 'Session';
     isSession = false;
     isBreak = false;
-    isSessionPaused = false;
-    isBreakPaused = false;
     bgFillingColor = 'transparent';
     bgFillingHeight = '0%';
     currentStateMessage = 'Tap to start';
-
-    visibility = false;
 
     // Define timer variable
     timeInterval;
@@ -79,16 +75,20 @@ export class AppComponent implements OnInit {
     timerInit() {
 
         if (this.timeInterval !== undefined) {
-            clearInterval(this.timeInterval);    // Some king of pause
+            clearInterval(this.timeInterval);    // Some kind of pause
             this.timeInterval = undefined;
             return;
         }
 
         if (this.timeInterval === undefined && this.isBreak === false) {
             this.isSession = true;
+            this.currentState = 'Session';
+            this.currentTimerInSeconds = this.sessionLength * 60;
             this.setFilling('red', '0%');
             this.currentStateMessage = 'Stay Focused at Work';
         } else {
+            this.currentState = 'Break!';
+            this.currentTimerInSeconds = this.breakLength * 60;
             this.setFilling('green', '0%');
             this.currentStateMessage = 'Time to Relax';
         }
@@ -103,7 +103,6 @@ export class AppComponent implements OnInit {
         this.currentTimerInSeconds--;
 
         const t = this.getTimeRemaining(this.currentTimerInSeconds);
-        this.currentTimer = this.currentTimerInSeconds.toString();
         this.currentTimer = ('0' + t.minutes).slice(-2) + ':' + ('0' + t.seconds).slice(-2);
 
         let totalLength: number;
@@ -161,9 +160,9 @@ export class AppComponent implements OnInit {
         this.currentStateMessage = 'Tap to start';
     }
 
-    setFilling(bgColor: string, bgWidth: string) {
+    setFilling(bgColor: string, bgHeight: string) {
         this.bgFillingColor = bgColor;
-        this.bgFillingHeight = bgWidth;
+        this.bgFillingHeight = bgHeight;
     }
 
 }
