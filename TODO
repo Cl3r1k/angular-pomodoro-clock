@@ -6,7 +6,6 @@
 
 Todos:
     New:
-        ☐ Deploy on codepen
         
     Done:
         ✔ White business logic
@@ -23,6 +22,7 @@ Todos:
         ✔ Correct e2e test
         ✔ Write Unit tests
         ✔ Deploy on gh-pages
+        ✔ Deploy on codepen
         
     Canceled:
         ✘ Add additional button for timer reset -> Not necessarily anymore
